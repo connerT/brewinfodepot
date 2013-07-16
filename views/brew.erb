@@ -1,1 +1,17 @@
 <p>We'll display our brew information here</p>
+
+<% if @brew_info.to_a.empty? %>
+
+	<p>Sorry but we couldn't find any breweries by that name. Give it another shot why don't you?</p>
+	
+<% else %>
+
+	<p>We found something and here it is</p>
+	
+	<%= @brew_info.each do |brew| %>
+		
+		<p><%= brew.name %></p>
+	
+	<% end %>
+
+<% end %>
