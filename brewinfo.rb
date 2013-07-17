@@ -10,7 +10,8 @@ end
 class BrewInfo
 
 	def search_brew(text)
-		uri = URI.parse("http://api.brewerydb.com/v2/search?q=#{text}&key=3ffa6988117c643475d83ee843637652&format=json")
+		brewdb = ENV['BREWDB'] 
+		uri = URI.parse("http://api.brewerydb.com/v2/search?q=#{text}&key=#{brewdb}&format=json")
 		resp = Net::HTTP.get_response(uri)
 	end
 	
@@ -22,28 +23,28 @@ class BrewInfo
 		brewlist = [] #array to hold the results
 		
 		if resp.code == "200"
-		  result = JSON.parse(resp_text)
-		  data = result["data"]
+			 result = JSON.parse(resp_text)
+			 data = result["data"]
 
-		  if (data != nil) # make sure we returned a response
-			data.each do |brewery|
-				brew = Brew.new
-				brew.id = brewery["id"] #reference properties like this
-				brew.name = brewery["name"]
-				brew.description = brewery["description"]
-				brew.website = brewery["website"]
-				brew.established = brewery["established"]
-				brew.isOrganic = brewery["isOrganic"]
-				brew.images = brewery["images"]
-				brew.status = brewery["status"]
-				brew.statusDisplay = brewery["statusDisplay"]
-				brew.createDate = brewery["createDate"]
-				brew.updateDate = brewery["updateDate"]
-				brew.type = brewery["type"]
-				
-				brewlist << brew
-			end
-		 end
+			 if (data != nil) # make sure we returned a response
+				data.each do |brewery|
+					brew = Brew.new
+					brew.id = brewery["id"] #reference properties like this
+					brew.name = brewery["name"]
+					brew.description = brewery["description"]
+					brew.website = brewery["website"]
+					brew.established = brewery["established"]
+					brew.isOrganic = brewery["isOrganic"]
+					brew.images = brewery["images"]
+					brew.status = brewery["status"]
+					brew.statusDisplay = brewery["statusDisplay"]
+					brew.createDate = brewery["createDate"]
+					brew.updateDate = brewery["updateDate"]
+					brew.type = brewery["type"]
+					
+					brewlist << brew
+				end
+			 end
 		 end
 		
 		return brewlist
