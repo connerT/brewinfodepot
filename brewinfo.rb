@@ -15,6 +15,12 @@ class BrewInfo
 		resp = Net::HTTP.get_response(uri)
 	end
 	
+	def search_brew_by_id(id)
+		brewdb = ENV['BREWDB'] 
+		uri = URI.parse("http://api.brewerydb.com/v2/beers/?id=#{id}&key=#{brewdb}&format=json")
+		resp = Net::HTTP.get_response(uri)
+	end
+	
 	def get_brew_info(text)
 		resp = search_brew(text)
 		resp_text = resp.body

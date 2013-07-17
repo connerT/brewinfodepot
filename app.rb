@@ -5,6 +5,8 @@ require './config/environments' #database configuration
 require './models/model'
 require_relative './brewinfo'
 
+enable :sessions
+
 get '/' do
 	erb :index
 end 
@@ -35,7 +37,12 @@ get '/random' do
 	#search for a random brew
 	brew = BrewInfo.new
 	@brew_info = brew.get_brew_info("yazoo")
-	puts @brew_info
+	session[:brews] = @brew_info
+	erb :brew
+end
+
+get '/brew/:id' do
+	@id = params[:id]
 	erb :brew
 end
 	
