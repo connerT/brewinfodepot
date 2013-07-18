@@ -3,8 +3,13 @@ require "net/http"
 require "uri"
 require "json"
 
-class Brew
-	attr_accessor :id, :name, :description, :website, :established, :isOrganic, :images, :status, :statusDisplay, :createDate, :updateDate, :type
+class Brewery
+	attr_accessor :id, :name, :description, :website, :established, :isOrganic, :images, :icon_image, :medium_image, :large_image, :status, :statusDisplay, :createDate, :updateDate, :type, 
+						 :labels, :label_icon, :label_medium, :label_large
+end
+
+class Beer
+	attr_accessor :id
 end
 
 class BrewInfo
@@ -34,19 +39,33 @@ class BrewInfo
 
 			 if (data != nil) # make sure we returned a response
 				data.each do |brewery|
-					brew = Brew.new
+					brew = Brewery.new
 					brew.id = brewery["id"] #reference properties like this
 					brew.name = brewery["name"]
 					brew.description = brewery["description"]
 					brew.website = brewery["website"]
 					brew.established = brewery["established"]
 					brew.isOrganic = brewery["isOrganic"]
-					brew.images = brewery["images"]
 					brew.status = brewery["status"]
 					brew.statusDisplay = brewery["statusDisplay"]
 					brew.createDate = brewery["createDate"]
 					brew.updateDate = brewery["updateDate"]
 					brew.type = brewery["type"]
+					brew.images = brewery["images"]
+					
+					if !( brew.images.to_s.empty? ) 
+						brew.icon_image = brewery["images"]["icon"]
+						brew.medium_image = brewery["images"]["medium"]
+						brew.large_image = brewery["images"]["large"]
+					end
+					
+					brew.labels = brewery["labels"]
+					
+					if !( brew.labels.to_s.empty? )
+						brew.label_icon = brewery["labels"]["icon"]
+						brew.label_medium = brewery["labels"]["medium"]
+						brew.label_large = brewery["labels"]["large"]
+					end
 					
 					brewlist << brew
 				end

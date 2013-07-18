@@ -1,0 +1,42 @@
+<h2> You're search for "<%= @term %>" returned <%= @brew_info.size %> results </h2>
+<% if @brew_info.to_a.empty? %>
+
+	<p>Sorry but we couldn't find anything by that name. Give it another shot why don't you?</p>
+	
+<% elsif @brew_info.size >= 1 %>
+	
+	<ul class="thumbnails">
+	
+	<% @brew_info.each do |b| %>
+		
+		<li class="span3">
+		
+			<div class="thumbnail">
+				
+				<% if !( b.images.to_s.empty?) %>
+				
+					<img src="<%= b.icon_image %>" alt="<%= b.name %> Image">
+				
+				<% elsif !( b.labels.to_s.empty?) %>
+				
+					<img src="<%= b.label_icon %>" alt="<%= b.name %> Image">
+				
+				<% else %>
+				
+					<img src="/images/brewIcon.png" alt="<%= b.name %> Image">
+				
+				<% end %>
+				
+				<div class="caption">
+				
+				<h5><a href="/brew/<%= b.id %>"><%= b.name %></a></h5>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 		magna aliqua.</p>
+		
+		</li>
+	
+	<% end %>
+	
+	</ul>
+
+<% end %>
