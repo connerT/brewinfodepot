@@ -1,4 +1,5 @@
-<h2> You're search for "<%= @term %>" returned <%= @brew_info.size %> results </h2>
+<h2> Your search for "<%= @term %>" returned <%= @brew_info.size %> results </h2>
+
 <% if @brew_info.to_a.empty? %>
 
 	<p>Sorry but we couldn't find anything by that name. Give it another shot why don't you?</p>
@@ -31,8 +32,20 @@
 				
 				<h5><a href="/brew/<%= b.id %>"><%= b.name %></a></h5>
 				
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 		magna aliqua.</p>
-		
+				<% if ( b.description.to_s.length <= 125 && b.description.to_s.length > 0 ) %>
+				
+					<p><%= b.description %></p>
+				
+				<% elsif ( b.description.to_s.length > 125 ) %>
+				
+					<p><%= b.description[0, 125] %>...</p>
+					
+				<% else %>
+				
+					<p> No description is currently available.</p>
+					<p><a href="http://www.brewerydb.com/beer/<%= b.id %>">Add a description</a></p>
+					
+				<% end %>
 		</li>
 	
 	<% end %>

@@ -5569,6 +5569,7 @@ input[type="submit"].btn.btn-mini {
      -moz-transition: all 0.2s ease-in-out;
        -o-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
+	height: 245px;
 }
 
 a.thumbnail:hover,

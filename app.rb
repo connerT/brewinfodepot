@@ -33,7 +33,7 @@ post '/search' do
 	term = params[:term]
 	@term = term
 	brew = BrewInfo.new
-	@brew_info = brew.get_brew_info(term)
+	@brew_info = brew.get_brew_info( URI.escape( term ) )
 	@session['brews'] = @brew_info
 	erb :results
 end
