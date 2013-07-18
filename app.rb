@@ -15,18 +15,12 @@ get '/' do
 	erb :index
 end 
 
-post '/submit' do
-	@model = Model.new(params[:model])
-	if @model.save
-		redirect '/models'
-	else
-		"Sorry, there was an error!"
-	end 
+get '/about' do
+	erb :about
 end
 
-get '/models' do
-	@models = Model.all
-	erb :models
+get '/contact' do
+	erb :contact
 end
 
 post '/search' do
@@ -38,14 +32,6 @@ post '/search' do
 	erb :results
 end
 
-get '/about' do
-	erb :about
-end
-
-get '/contact' do
-	erb :contact
-end
-
 get '/random' do
 	#search for a random brew
 	brew = BrewInfo.new
@@ -54,8 +40,30 @@ get '/random' do
 	erb :results
 end
 
-get '/brew/:id' do
-	@id = params[:id]
-	erb :brew
+get '/brew/:type/:id' do
+	type = params[:type]
+	id = params[:id]
+	
+	if ( type.to_s == "beer" )
+		erb :brew
+	else
+		erb :brewery
+	end
+end
+
+# Not currently used
+post '/submit' do
+	@model = Model.new(params[:model])
+	if @model.save
+		redirect '/models'
+	else
+		"Sorry, there was an error!"
+	end 
+end
+
+# Not currently used
+get '/models' do
+	@models = Model.all
+	erb :models
 end
 	
