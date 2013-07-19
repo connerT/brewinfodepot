@@ -1,0 +1,87 @@
+
+/////////////////////////// Beer ///////////////////////////////////////
+
+Requested URL: https://api.brewerydb.com/v2/beer/oeGSxs?key=3ffa6988117c643475d83ee843637652&format=json
+
+{
+  "message":"Request Successful",
+  "data":{
+    "id":"oeGSxs",
+    "name":"Naughty 90",
+    "description":"Our Naughty 90 Oaked IPA was inspired by ocean bound, oak barreled brews of the 1800\u2019s. Packed with hops on a 90-minute schedule, uniquely malted, then aged on a bed of oak, this IPA delivers a taste that is both innovative and timeless.",
+    "abv":"6.2",
+    "ibu":"100",
+    "glasswareId":5,
+    "availableId":4,
+    "styleId":30,
+    "isOrganic":"N",
+    "labels":{
+      "icon":"https:\/\/s3.amazonaws.com\/brewerydbapi\/beer\/oeGSxs\/upload_FiPLQC-icon.png",
+      "medium":"https:\/\/s3.amazonaws.com\/brewerydbapi\/beer\/oeGSxs\/upload_FiPLQC-medium.png",
+      "large":"https:\/\/s3.amazonaws.com\/brewerydbapi\/beer\/oeGSxs\/upload_FiPLQC-large.png"
+    },
+    "status":"verified",
+    "statusDisplay":"Verified",
+    "createDate":"2012-01-03 02:43:45",
+    "updateDate":"2012-09-08 19:43:52",
+    "glass":{
+      "id":5,
+      "name":"Pint",
+      "createDate":"2012-01-03 02:41:33"
+    },
+    "available":{
+      "id":4,
+      "name":"Seasonal",
+      "description":"Available at the same time of year, every year."
+    },
+    "style":{
+      "id":30,
+      "categoryId":3,
+      "category":{
+        "id":3,
+        "name":"North American Origin Ales",
+        "createDate":"2012-03-21 20:06:45"
+      },
+      "name":"American-Style India Pale Ale",
+      "description":"American-style India pale ales are perceived to have medium-high to intense hop bitterness, flavor and aroma with medium-high alcohol content. The style is further characterized by floral, fruity, citrus-like, piney, resinous, or sulfur-like American-variety hop character. Note that one or more of these American-variety hop characters is the perceived end, but the hop characters may be a result of the skillful use of hops of other national origins. The use of water with high mineral content results in a crisp, dry beer. This pale gold to deep copper-colored ale has a full, flowery hop aroma and may have a strong hop flavor (in addition to the perception of hop bitterness). India pale ales possess medium maltiness which contributes to a medium body. Fruity-ester flavors and aromas are moderate to very strong. Diacetyl can be absent or may be perceived at very low levels. Chill and\/or hop haze is allowable at cold temperatures. (English and citrus-like American hops are considered enough of a distinction justifying separate American-style IPA and English-style IPA categories or subcategories. Hops of other origins may be used for bitterness or approximating traditional American or English character. See English-style India Pale Ale",
+      "ibuMin":"50",
+      "ibuMax":"70",
+      "abvMin":"6.3",
+      "abvMax":"7.5",
+      "srmMin":"6",
+      "srmMax":"14",
+      "ogMin":"1.06",
+      "fgMin":"1.012",
+      "fgMax":"1.018",
+      "createDate":"2012-03-21 20:06:45"
+    }
+  },
+  "status":"success"
+}
+
+
+/////////////////////////// Brewery ///////////////////////////////////////
+
+Requested URL: https://api.brewerydb.com/v2/brewery/gUJBgl?key=3ffa6988117c643475d83ee843637652&format=json
+
+{
+  "message":"Request Successful",
+  "data":{
+    "id":"gUJBgl",
+    "name":"Yazoo Brewing Company",
+    "description":"Yazoo Brewing began as just a dream, stoked by years of homebrewing in the basement. Linus and Lila Hall moved to Nashville from Mississippi in 1996, with Linus going to work as a tire engineer for Bridgestone and Lila as a curator for the Parthenon. Trying to make tires more round proved to be less fulfilling than making great beer, so with the encouragement of Lila, Linus quit his job, got a business degree from Vanderbilt and a craft-brewing education through a course at the American Brewer's Guild, and did an internship under Garrett Oliver at Brooklyn Brewery. Linus found a used 10 bbl brewing system from a brewpub in Iowa that had gone out of business, and went to work restoring a corner of the old Marathon Motorworks building for their brewery. Yazoo Brewing opened for business in Oct 2003, and quickly gained an enthusiastic local following.",
+    "website":"http:\/\/www.yazoobrew.com\/",
+    "established":"2003",
+    "isOrganic":"N",
+    "images":{
+      "icon":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/gUJBgl\/upload_P8vokp-icon.png",
+      "medium":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/gUJBgl\/upload_P8vokp-medium.png",
+      "large":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/gUJBgl\/upload_P8vokp-large.png"
+    },
+    "status":"verified",
+    "statusDisplay":"Verified",
+    "createDate":"2012-01-03 02:42:13",
+    "updateDate":"2012-10-22 13:20:04"
+  },
+  "status":"success"
+}

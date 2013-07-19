@@ -41,12 +41,15 @@ get '/random' do
 end
 
 get '/brew/:type/:id' do
-	type = params[:type]
+	@type = params[:type]
 	id = params[:id]
+	brew = BrewInfo.new
 	
-	if ( type.to_s == "beer" )
+	if ( @type.to_s == "beer" )
+		@beer = brew.get_beer_info( id )
 		erb :brew
 	else
+		@brewery = brew.get_brewery_info( id )
 		erb :brewery
 	end
 end

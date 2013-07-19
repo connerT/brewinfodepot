@@ -1,5 +1,5 @@
 <h2> Your search for "<%= @term %>" returned <%= @brew_info.size %> results </h2>
-
+<p> The class is <%= @brew_info.class %>. </p>
 <% if @brew_info.to_a.empty? %>
 
 	<p>Sorry but we couldn't find anything by that name. Give it another shot why don't you?</p>
@@ -12,15 +12,13 @@
 		
 		<li class="span3">
 		
+			<p> The class is <%= b.class %> </p>
+		
 			<div class="thumbnail">
 				
 				<% if !( b.images.to_s.empty?) %>
 				
-					<img src="<%= b.icon_image %>" alt="<%= b.name %> Image">
-				
-				<% elsif !( b.labels.to_s.empty?) %>
-				
-					<img src="<%= b.label_icon %>" alt="<%= b.name %> Image">
+					<img src="<%= b.images_icon %>" alt="<%= b.name %> Image">
 				
 				<% else %>
 				
