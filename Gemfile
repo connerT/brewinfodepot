@@ -5,6 +5,6 @@ gem "sinatra"
 # gem "sinatra-activerecord"
 # gem "pg"
 gem 'sinatra-twitter-bootstrap', :require => 'sinatra/twitter-bootstrap'
-gem "net/http"
-gem "uri"
+# gem "net/http"
+# gem "uri"
 gem "json"
