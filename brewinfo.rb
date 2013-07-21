@@ -22,7 +22,8 @@ end
 class BrewInfo
 
 	def search_brew(text)
-		brewdb = ENV['BREWDB'] 
+#		brewdb = ENV['BREWDB'] 
+    brewdb = 3ffa6988117c643475d83ee843637652
 		uri = URI.parse("http://api.brewerydb.com/v2/search?q=#{text}&key=#{brewdb}&format=json")
 		resp = Net::HTTP.get_response(uri)
 	end
