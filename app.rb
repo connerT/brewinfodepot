@@ -17,6 +17,8 @@ before do
 end
 
 get '/' do
+	flickr_info = FlickrInfo.new
+	@flickr = flickr_info.get_flickr_photos( "craft beer" )
 	erb :index
 end 
 

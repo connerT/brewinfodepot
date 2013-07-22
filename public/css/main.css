@@ -1,3 +1,13 @@
 .sidebar-nav {
-	
+
+}
+
+.media-grid {
+	list-style:none;
+}
+
+.media-grid img {
+	height: 110px;
+	width: 110px;
+	max-width: none;
 }

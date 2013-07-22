@@ -1,6 +1,13 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-<h1>Welcome to Brew Info Depot!</h1>
-<p>Brew Info Depot is your one stop site for information on all types of beers and breweries from around the world.</p>
-<p><a href="/random" class="btn btn-primary btn-large">Random Brew &raquo;</a></p>
+	<h1>Welcome to Brew Mojo!</h1>
+	<p>Brew Mojo is your one stop site for information on all types of beers and breweries from around the world.</p>
+	<p><a href="/random" class="btn btn-primary btn-large">Random Brew &raquo;</a></p>
+</div>
+<div class="row">
+	<ul class="media-grid">
+		<% @flickr.each do |photo| %>
+			<li class="span1"><a href="#"><img src="<%= photo.photo_url %>" alt=""></a></li>
+		<% end %>
+	</ul>
 </div>
