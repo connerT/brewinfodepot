@@ -4,12 +4,11 @@ require "uri"
 require "json"
 
 class Brewerydb
-	attr_accessor :id, :name, :description, :createDate, :updateDate, :status, :statusDisplay, :images, :images_icon, :images_medium, :images_large, :type
+	attr_accessor :id, :name, :description, :createDate, :updateDate, :status, :statusDisplay, :images, :images_icon,          :images_medium, :images_large, :type
 end
 
 class Brewery < Brewerydb
-	attr_accessor :website, :established, :isOrganic, :images, :images_icon, :images_medium, :images_large, :status, :statusDisplay,
-						 :labels, :label_icon, :label_medium, :label_large
+	attr_accessor :website, :established, :isOrganic, :images, :images_icon, :images_medium, :images_large, :status, :statusDisplay, :labels, :label_icon, :label_medium, :label_large
 end
 
 class Beer < Brewerydb

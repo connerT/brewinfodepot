@@ -4,8 +4,13 @@ require 'sinatra'
 # require './config/environments' #database configuration
 # require './models/model'
 require_relative './brewinfo'
+require_relative './apis/flickr/flickr'
 
 enable :sessions
+
+class InfoHolder
+  attr_accessor :brewdb, :flickr
+end
 
 before do
 	@session = session
@@ -41,15 +46,23 @@ get '/random' do
 end
 
 get '/brew/:type/:id' do
-	@type = params[:type]
+  @info = InfoHolder.new
+	type = params[:type]
 	id = params[:id]
-	brew = BrewInfo.new
+	brew_info = BrewInfo.new
+	flickr_info = FlickrInfo.new
 	
-	if ( @type.to_s == "beer" )
-		@beer = brew.get_beer_info( id )
+	if ( type.to_s == "beer" )
+		beer = brew_info.get_beer_info( id )
+		flickr = flickr_info.get_flickr_photos( beer.name )
+		@info.brewdb = beer
+		@info.flickr = flickr
 		erb :brew
 	else
-		@brewery = brew.get_brewery_info( id )
+		brewery = brew_info.get_brewery_info( id )
+		flickr = flickr_info.get_flickr_photos( brewery.name )
+		@info.brewdb = brewery
+		@info.flickr = flickr
 		erb :brewery
 	end
 end
