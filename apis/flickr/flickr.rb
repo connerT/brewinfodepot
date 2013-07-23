@@ -5,7 +5,7 @@ require "nokogiri"
 
 class Flickr
 
-  attr_accessor :id, :owner, :secret, :server, :farm, :title, :ispublic, :isfriend, :isfamily, :photo_url
+  attr_accessor :id, :owner, :secret, :server, :farm, :title, :ispublic, :isfriend, :isfamily, :photo_url, :photo_square, :photo_largeSquare, :photo_thumbnail, :photo_small, :photo_medium, :photo_medium_640, :photo_original
 
 end
 
@@ -13,7 +13,7 @@ class FlickrInfo
 
   def search_photos(text) 
     text = URI.escape(text)
-    uri = URI.parse("http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=756d74d6303e66f5c305f2d24df19dfe&tags=#{text}&text=#{text}&sort=relevance&safe_search=1")
+    uri = URI.parse("http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=756d74d6303e66f5c305f2d24df19dfe&tags=#{text}&text=#{text}&sort=relevance&safe_search=1&content_type=1")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
@@ -21,6 +21,16 @@ class FlickrInfo
     response.body             # => The body (HTML, XML, blob, whatever)
     return response.body
   end
+  
+  def get_sizes(id)
+	uri = URI.parse("http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=756d74d6303e66f5c305f2d24df19dfe&photo_id=#{text}")	
+	http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    response.code             # => 301
+    response.body             # => The body (HTML, XML, blob, whatever)
+    return response.body
+  end 
 
   def get_flickr_photos(text) 
     response = search_photos(text)
@@ -30,6 +40,12 @@ class FlickrInfo
     xml_resp.xpath("//photos//photo").map do |photo|
       fp = Flickr.new
       fp.id = photo['id']
+	  
+	  # make another call to Flickr to get the different photo sizes
+	  sizes = get_sizes( fp.id )
+	  xml_sizes = Nologiri::XML(sizes)
+	  fp.photo_square = xml_sizes
+	  
       fp.owner = photo['owner']
       fp.secret = photo['secret']
       fp.server = photo['server']
