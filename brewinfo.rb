@@ -29,7 +29,7 @@ class BrewInfo
 	
 	def get_beer_by_id(id)
 		brewdb = ENV['BREWDB'] 
-		uri = URI.parse("http://api.brewerydb.com/v2/beer/#{id}?&key=#{brewdb}&format=json")
+		uri = URI.parse("http://api.brewerydb.com/v2/beer/#{id}?&key=#{brewdb}&withBreweries=Y&format=json")
 		resp = Net::HTTP.get_response(uri)
 	end
 	
