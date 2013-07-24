@@ -36,6 +36,7 @@
 			    	data-cycle-timeout=5000
 					data-cycle-pause-on-hover="true"
 					>
+					
 					<% @info.flickr.each do |photo| %>
 						<img src="<%= photo.photo_small_320 %>" 
 						alt="<%= photo.title %>" />
@@ -49,7 +50,7 @@
 </div> <!--end main row-->
 
 <div class="row"> <!-- comments section -->
-	<div class="span1"></div>
+	<div class="span3"></div>
     <div id="disqus_thread" class = "span9"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -65,5 +66,4 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <div class="span1"></div>
 </div> <!-- end comments row -->

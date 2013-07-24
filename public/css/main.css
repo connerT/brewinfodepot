@@ -12,7 +12,13 @@
 	max-width: none;
 }
 
+.brew-slideshow {
+	height: 360px;
+	width: 240px;
+}
+
 .brew-slideshow img {
+	border: 10px solid #ccc;
 	height: 320px;
 	width: 240px;
 }
