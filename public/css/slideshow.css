@@ -10,7 +10,6 @@
 
 .cycle-slideshow { width: 100%; min-width: 200px; max-width: 600px; margin: 10px auto; padding: 0; position: relative;
     background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
-	border: 10px solid #DDDDDD;
 
  }
 

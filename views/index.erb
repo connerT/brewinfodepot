@@ -7,7 +7,7 @@
 <div class="row">
 	<ul class="media-grid">
 		<% @flickr.each do |photo| %>
-			<li class="span1"><a href="#"><img src="<%= photo.photo_url %>" alt=""></a></li>
+			<li class="span1"><a href="#"><img src="<%= photo.photo_thumbnail %>" alt=""></a></li>
 		<% end %>
 	</ul>
 </div>
